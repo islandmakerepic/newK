@@ -25,6 +25,17 @@ local mouse=plr:GetMouse()
 
 local char=plr.Character
 arm=char["Right Arm"]
+arm2=char['Right Arm']:clone()
+arm2.Name='ArmR'
+arm2.Size=Vector3.new(1,1,2)
+arm2.Transparency=1
+arm2.CanCollide=false
+arm2.Anchored=true
+coroutine.wrap(function()
+  while wait() do
+    arm2.CFrame=arm.CFrame*CFrame.new(0,0,-1)
+    end
+  end)()
 local equip=function(bool)
 arm.Transparency=bool==true and 1 or 0
 arm2.Transparency=arm.Transparency==0 and 1 or 0
