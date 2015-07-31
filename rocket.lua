@@ -3,10 +3,11 @@ local activekey = 'r'
 local smokeSmall = Instance.new("Part",workspace)
 smokeSmall.FormFactor='Custom'
 smokeSmall.Shape='Ball'
-smokeSmall.Size=Vector3.new(1,1,1)
-smokeSmall.Transparency=0.4
+smokeSmall.Size=Vector3.new(2,2,2)
+smokeSmall.Transparency=0.3
 smokeSmall.TopSurface='Smooth'
 smokeSmall.Parent=game.Lighting
+smokeSmall.Anchored=true
 smokeSmall.CanCollide=false
 smokeSmall=smokeSmall:clone()
 
