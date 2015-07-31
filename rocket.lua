@@ -31,6 +31,11 @@ arm2.Size=Vector3.new(1,1,2)
 arm2.Transparency=1
 arm2.CanCollide=false
 arm2.Anchored=true
+arm2.Parent=char
+launch=rocket:clone()
+launch.BrickColor=BrickColor.new()
+launch.Transparency=1
+launch.Parent=char
 coroutine.wrap(function()
   while wait() do
     arm2.CFrame=arm.CFrame*CFrame.new(0,0,-1)
