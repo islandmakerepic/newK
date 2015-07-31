@@ -80,7 +80,7 @@ local rock=rocket:clone()
 rock.Anchored=true
 rock.Parent=workspace
 rock.CFrame=arm2.CFrame*CFrame.new(0,0,-5)
-mag=(pos-rock.CFrame.p)
+mag=(pos-rock.CFrame.p).magnitude
 game.Debris:AddItem(rock,mag/5)
 rock.CFrame=CFrame.new(rock.Position,pos)
 local w=coroutine.wrap(function()
