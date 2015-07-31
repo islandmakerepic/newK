@@ -81,6 +81,7 @@ rock.Anchored=true
 rock.Parent=workspace
 rock.CFrame=arm2.CFrame*CFrame.new(0,0,-5)
 mag=(pos-rock.CFrame.p).magnitude
+print(mag)
 game.Debris:AddItem(rock,mag/5)
 rock.CFrame=CFrame.new(rock.Position,pos)
 local w=coroutine.wrap(function()
@@ -97,5 +98,5 @@ end
 
 mouse.Button1Down:connect(function()
   print(on)
-if on then Fire(mouse.Hit) end
+if on then Fire(mouse.Hit.p) end
 end)
