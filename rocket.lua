@@ -39,6 +39,7 @@ launch.Parent=char
 coroutine.wrap(function()
   while wait() do
     arm2.CFrame=arm.CFrame*CFrame.new(0,0,-1)
+    launch.CFrame=arm2.CFrame*CFrame.new(0,0,-3)
     end
   end)()
 local equip=function(bool)
