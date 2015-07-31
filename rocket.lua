@@ -43,16 +43,21 @@ coroutine.wrap(function()
     end
   end)()
 local equip=function(bool)
-arm.Transparency=bool==true and 1 or 0
-arm2.Transparency=arm.Transparency==0 and 1 or 0
-launch.Transparency=arm2.Transparency
-on=bool
+if bool then
+  arm.Transparency=1
+  arm2.Transparency=0
+  launch.Transparency=0
+else
+   arm.Transparency=0
+  arm2.Transparency=1
+  launch.Transparency=1
+  end
 end
 
 mouse.KeyDown:connect(function(k)
 if k==activekey then
-equip(not on)
-on=not on
+  on=not on
+equip(on)
 end
 end)
 
@@ -73,6 +78,7 @@ end
 Fire=function(pos)
 local rock=rocket:clone()
 rock.Anchored=true
+rock.Parent=workspace
 rock.CFrame=arm2.CFrame*CFrame.new(0,0,-5)
 mag=(pos-rock.CFrame.p)
 game.Debris:AddItem(rock,mag/5)
@@ -90,5 +96,6 @@ wait(2)
 end
 
 mouse.Button1Down:connect(function()
+  print(on)
 if on then Fire(mouse.Hit) end
 end)
