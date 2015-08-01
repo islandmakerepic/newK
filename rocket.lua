@@ -109,7 +109,6 @@ for i=5,20,2 do
     game.Debris:AddItem(ss,0.7)
   end
 end)()
-w()
 wait(2)
 end
 
