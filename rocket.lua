@@ -4,7 +4,7 @@ local smokeSmall = Instance.new("Part",workspace)
 smokeSmall.FormFactor='Custom'
 smokeSmall.Shape='Ball'
 smokeSmall.Size=Vector3.new(2,2,2)
-smokeSmall.Transparency=0.3
+smokeSmall.Transparency=0.2
 smokeSmall.TopSurface='Smooth'
 smokeSmall.Parent=game.Lighting
 smokeSmall.Anchored=true
@@ -76,6 +76,10 @@ end
 end
 end
 
+collide=function(a)
+  return a.Touched:wait()
+  end
+
 Fire=function(pos)
 local rock=rocket:clone()
 rock.Anchored=true
@@ -88,23 +92,29 @@ rock.CFrame=CFrame.new(rock.Position,pos)
 local w=coroutine.wrap(function()
 for i=1,mag,2 do
 wait(0)
+if not collide(rock) then
 rock.CFrame=rock.CFrame*CFrame.new(0,0,-2)
 ss=smokeSmall:clone()
 ss.Parent=workspace
 game.Debris:AddItem(ss,mag-i)
 ss.CFrame=rock.CFrame*CFrame.new(math.random(-2,3),0,-2)
 check(rock)
-end
+else
+game.Debris:AddItem(rock,0.1)
+Frame=rock.CFrame
 ss=smokeSmall:clone()
 ss.Size=Vector3.new(5,5,5)
 for i=5,10 do
   ss=ss:clone()
   ss.Parent=workspace
   ss.Size=Vector3.new(i,i,i)
-  ss.CFrame=rock.CFrame*CFrame.new(0,0,-(i*2))
+  ss.CFrame=Frame*CFrame.new(0,0,-(i*2))
     game.Debris:AddItem(ss,0.7)
   end
 end)
+end
+end
+end)()
 w()
 wait(2)
 end
