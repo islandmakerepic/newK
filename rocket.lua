@@ -43,7 +43,8 @@ coroutine.wrap(function()
     arm2.CFrame=arm.CFrame*CFrame.new(0,0,-1)
     launch.CFrame=arm2.CFrame*CFrame.new(0,0,-3)
     end
-  end)()
+end)()
+
 local equip=function(bool)
 if bool then
   arm.Transparency=1
@@ -77,9 +78,6 @@ end
 end
 end
 
-collide=function(a)
-  return a.Touched:wait()
-  end
 
 Fire=function(pos)
 local rock=rocket:clone()
