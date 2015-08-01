@@ -6,6 +6,7 @@ smokeSmall.Shape='Ball'
 smokeSmall.Size=Vector3.new(2,2,2)
 smokeSmall.Transparency=0.2
 smokeSmall.TopSurface='Smooth'
+smokeSmall.BottomSurface='Smooth'
 smokeSmall.Parent=game.Lighting
 smokeSmall.Anchored=true
 smokeSmall.CanCollide=false
@@ -95,7 +96,7 @@ wait(0)
 rock.CFrame=rock.CFrame*CFrame.new(0,0,-2)
 ss=smokeSmall:clone()
 ss.Parent=workspace
-game.Debris:AddItem(ss,mag-i)
+game.Debris:AddItem(ss,1)
 ss.CFrame=rock.CFrame*CFrame.new(math.random(-2,3),0,-2)
 check(rock)
 end
