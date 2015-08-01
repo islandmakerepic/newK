@@ -99,7 +99,6 @@ game.Debris:AddItem(ss,mag-i)
 ss.CFrame=rock.CFrame*CFrame.new(math.random(-2,3),0,-2)
 check(rock)
 end
-end)
 Frame=rock.CFrame
 ss=smokeSmall:clone()
 ss.Size=Vector3.new(5,5,5)
